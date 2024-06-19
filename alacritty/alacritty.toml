@@ -1,0 +1,97 @@
+#==========================================================
+# General
+#==========================================================
+
+import = ["~/.config/hypr/alacritty/colors.toml"]
+
+live_config_reload = true
+ipc_socket = true
+
+#==========================================================
+# Enviroment
+#==========================================================
+
+[env]
+TERM = "alacritty"
+WINIT_X11_SCALE_FACTOR = "1"
+
+#==========================================================
+# Window
+#==========================================================
+
+[window]
+position = "None"
+dynamic_padding = true
+decorations = "full"
+opacity = 1.0 
+blur = false
+startup_mode = "Windowed"
+dynamic_title = true
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "None"
+
+[window.padding]
+x = 15 
+y = 12
+
+#==========================================================
+# Font
+#==========================================================
+
+[font]
+size = 24 
+
+[font.normal]
+family = "ComicShannsMono Nerd Font Mono"
+
+[font.bold]
+family = "ComicShannsMono Nerd Font Mono"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+#==========================================================
+# Bell 
+#==========================================================
+
+[bell]
+animation = "Linear"
+duration = 20
+command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"]}
+
+#==========================================================
+# Cursor
+#==========================================================
+
+[cursor]
+vi_mode_style = "Beam"
+blink_interval = 500
+blink_timeout = 5
+unfocused_hollow = false
+thickness = 0.15
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+#==========================================================
+# Mouse
+#==========================================================
+
+[mouse]
+hide_when_typing = false
+
+#==========================================================
+# Hints
+#==========================================================
+
+[[hints.enabled]]
+command         = "xdg-open"
+hyperlinks      = true
+post_processing = true
+persist         = false
+mouse.enabled   = true
+binding         = { key = "U", mods = "Control|Shift" }
+regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
+

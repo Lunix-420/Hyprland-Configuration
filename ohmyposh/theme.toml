@@ -1,0 +1,73 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 2
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+[[blocks.segments]]
+background = "#eed49f"
+foreground = "#181926"
+leading_diamond = ""
+style = "diamond"
+template = "{{ .UserName }} "
+type = "session"
+
+[[blocks.segments]]
+background = "#7dc4e4"
+foreground = "#181926"
+powerline_symbol = ""
+style = "powerline"
+template = " {{ .Path }} "
+type = "path"
+
+[blocks.segments.properties]
+style = "folder"
+
+[[blocks.segments]]
+background = "#a6da95"
+foreground = "#181926"
+powerline_symbol = ""
+style = "powerline"
+template = "  ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}) "
+type = "git"
+
+[blocks.segments.properties]
+branch_icon = ""
+fetch_stash_count = true
+fetch_status = false
+fetch_upstream_icon = true
+
+[[blocks.segments]]
+background = "#8be9fd"
+foreground = "#f8f8f2"
+powerline_symbol = ""
+style = "powerline"
+template = "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+type = "node"
+
+[[blocks.segments]]
+background = "#ed8796"
+foreground = "#181926"
+style = "diamond"
+template = " ♥ {{ .CurrentDate | date .Format }} "
+trailing_diamond = ""
+type = "time"
+
+[blocks.segments.properties]
+time_format = "15:04"
+
+[[blocks]]
+alignment = "left"
+type = "rprompt"
+
+[[blocks.segments]]
+background = "#f1fa8c"
+foreground = "#282a36"
+invert_powerline = true
+leading_diamond = ""
+style = "diamond"
+template = "  {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+trailing_diamond = ""
+type = "aws"
