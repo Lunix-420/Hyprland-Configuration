@@ -2,18 +2,24 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 50,
   "spacing": 10,
-  // Choose the order of the modules
+  //===================================
+  // Left
   "modules-left": [
     "tray"
   ],
-  "modules-center": [],
-  "modules-right": [
+  "tray": {
+    "icon-size": 24
+  },
+  //===================================
+  // Center
+  "modules-center": [
     "clock"
   ],
-  "tray": {
-    "icon-size": 24,
-    "spacing": 10
-  }
+  "clock": {
+    "format": "It's {:%A the %d.%B %Y (%R)}"
+  },
+  //===================================
+  // Right
+  "modules-right": []
 }

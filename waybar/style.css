@@ -25,22 +25,14 @@
 @define-color mantle #1e2030;
 @define-color crust #181926;
 
-* { 
-  * font-family: ComicShannsMono Nerd Font Mono;
-    font-size: 24px;
+* {
+  font-family: Comic Neue;
+  font-size: 26px;
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: @base;
+  min-height: 40px;
+  margin-bottom: 10px;
 }
-
-.modules-left { 
-  padding: 10px;
-  background-color: transparent; 
-}
-
-#tray {
- background-color: alpha(@base, 0.9);
- }
-
 
