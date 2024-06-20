@@ -40,8 +40,8 @@ fetch_status = false
 fetch_upstream_icon = true
 
 [[blocks.segments]]
-background = "#8be9fd"
-foreground = "#f8f8f2"
+background = "#c6a0f6"
+foreground = "#181926"
 powerline_symbol = ""
 style = "powerline"
 template = "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
