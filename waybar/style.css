@@ -26,13 +26,15 @@
 @define-color crust #181926;
 
 * {
-  font-family: Comic Neue;
-  font-size: 26px;
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 20px;
 }
 
 window#waybar {
-  background-color: @base;
-  min-height: 40px;
-  margin-bottom: 10px;
+   background-color: @base;
+   border: solid;
+   border-color: @mauve;
+   border-bottom-width: 3px;
 }
 

@@ -78,6 +78,22 @@ shape = "Beam"
 blinking = "On"
 
 #==========================================================
+# Keyboard
+#==========================================================
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+mode = "~Vi"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+mode = "~Vi"
+action = "CopyDynamic"
+
+#==========================================================
 # Mouse
 #==========================================================
 

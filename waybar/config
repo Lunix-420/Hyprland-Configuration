@@ -1,5 +1,6 @@
 // -*- mode: jsonc -*-
 {
+  "height": 42,
   "layer": "top",
   "position": "top",
   "spacing": 10,
