@@ -39,11 +39,11 @@
 }
 
 #waybar > box {
-  background-color: alpha(@crust, 1.0);
+  background-color: alpha(@base, 1.0);
   transition-property: background-color;
   transition-duration: 0.5s;
   margin-top: 0px; 
-  margin-bottom: 5px; 
+  margin-bottom: 20px; 
   margin-left: 0px;
   margin-right: 0px; 
   padding-left: 5px;
@@ -53,9 +53,12 @@
   border-radius: 0px 0px 0px 0px;
   border-left-width: 0px;
   border-right-width: 0px;
-  border-bottom-width: 3px;
+  border-bottom-width: 2px;
 
-  box-shadow: 0px 0px 5px #000000;
+  box-shadow: 0px 0px 10px @shadow, 
+              0px 0px 5px @shadow, 
+              0px 0px 3px @shadow,
+              0px 0px 2px @shadow;
 }
 
 /*=======================================================*/
@@ -84,25 +87,22 @@
 
 #workspaces {
   background-color: transparent;
-  margin: 9px;
-  margin-bottom: 10px;
 }
 
 #workspaces button {
   all: initial;
   min-width: 0;
-  margin-right: 7px;
-  padding-left: 6px;
+  margin-top:9px;
+  margin-bottom: 9px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 7px;
   padding-right: 7px;
   border-radius: 30px;
   background-color: @surface0;
   border: solid 2px @surface0;
   color: @text;
-  box-shadow: 0px 0px 3px #000000;
-}
-
-#workspaces > label{
-  font-size: 3px;
+  box-shadow: 0px 0px 3px @shadow;
 }
 
 #workspaces button.active {
@@ -126,10 +126,36 @@
   box-shadow: 0px 0px 3px @red;
 }
 
+#tray {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 30px;
+  background-color: @surface0;
+  box-shadow: 0px 0px 3px @shadow;
+}
+
 /*=======================================================*/
 /* Center Panel                                          */
 /*=======================================================*/
 
+#window {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 30px;
+  color: @text;
+  background-color: @surface0;
+  box-shadow: 0px 0px 3px @shadow;
+}
 
 /*=======================================================*/
 /* Right Panel                                           */

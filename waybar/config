@@ -7,8 +7,14 @@
   //=======================================================
   "modules-left": [
     "custom/logo",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "tray"
   ],
+  "tray": {
+    "icon-size": 24,
+    "spacing": 10,
+    "show-passive-items": true
+  },
   "custom/logo": {
     "format": "",
     "tooltip": false,
@@ -27,7 +33,10 @@
       "6": "六",
       "7": "七",
       "8": "八",
-      "9": "九"
+      "9": "九",
+      "10": "百",
+      "11": "千",
+      "12": "万"
     },
     "persistent_workspaces": {
       "1": [],
@@ -38,13 +47,29 @@
       "6": [],
       "7": [],
       "8": [],
-      "9": []
+      "9": [],
+      "10": [],
+      "11": [],
+      "12": []
     }
   },
   //=======================================================
   // Center Modules
   //=======================================================
-  "modules-center": [],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 60,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "$1",
+      "nvim(.*)": "NeoVim Editor | Workspace: [$1 ]",
+      "sudo -E nvim(.*)": "NeoVim Editor | Workspace: sudo -E [$1 ]",
+      "(.*) - ArmCord": "Discord $1"
+    },
+    "separate-outputs": true
+  },
   //=======================================================
   // Left Modules
   //=======================================================
@@ -63,97 +88,5 @@
   },
   "clock#date": {
     "format": "<span rise='2500' font_desc='ComicShannsMono Nerd Font Mono'> </span>{:%A, %B %d, %Y}"
-  },
-  //=======================================================
-  // Unchanged
-  //=======================================================
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "on-click-right": "fullscreen",
-    "icon-theme": "WhiteSur",
-    "icon-size": 25,
-    "tooltip-format": "{title}"
-  },
-  "memory": {
-    "interval": 5,
-    "format": "󰍛 {}%",
-    "max-length": 10
-  },
-  "tray": {
-    "spacing": 10
-  },
-  "network": {
-    "format-wifi": "{icon}",
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
-    "format-ethernet": "󰀂",
-    "format-alt": "󱛇",
-    "format-disconnected": "󰖪",
-    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "~/.config/rofi/wifi/wifi.sh &",
-    "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
-    "interval": 5,
-    "nospacing": 1,
-  },
-  "pulseaudio": {
-    "format": "{icon}",
-    "format-bluetooth": "󰂰",
-    "nospacing": 1,
-    "tooltip-format": "Volume : {volume}%",
-    "format-muted": "󰝟",
-    "format-icons": {
-      "headphone": "",
-      "default": [
-        "󰖀",
-        "󰕾",
-        ""
-      ]
-    },
-    "on-click": "pamixer -t",
-    "scroll-step": 1
-  },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-icons": {
-      "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "default": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ]
-    },
-    "format-full": "Charged ",
-    "interval": 5,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    },
-    "tooltip": false
   }
 }
