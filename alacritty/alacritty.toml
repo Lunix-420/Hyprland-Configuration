@@ -31,8 +31,8 @@ class = { instance = "Alacritty", general = "Alacritty" }
 decorations_theme_variant = "None"
 
 [window.padding]
-x = 15
-y = 12
+x = 12
+y = 10
 
 #==========================================================
 # Font

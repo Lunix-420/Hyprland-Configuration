@@ -7,21 +7,20 @@ alignment = "left"
 type = "prompt"
 
 [[blocks.segments]]
-background = "#eed49f"
+template = " <b>{{ .UserName }}</b> "
+background = "#cad3f5"
 foreground = "#181926"
-leading_diamond = ""
-style = "diamond"
-template = "{{ .UserName }} "
+trailing_diamond = ""
+style = "powerline"
 type = "session"
 
 [[blocks.segments]]
-background = "#7dc4e4"
-foreground = "#181926"
-powerline_symbol = ""
+powerline_symbol = "\ue0b0"
+background = "#363A4F"
+foreground = "#cad3f5"
 style = "powerline"
 template = " {{ .Path }} "
 type = "path"
-
 [blocks.segments.properties]
 style = "folder"
 
@@ -48,10 +47,10 @@ template = "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}
 type = "node"
 
 [[blocks.segments]]
-background = "#ed8796"
+background = "#8AADF4"
 foreground = "#181926"
 style = "diamond"
-template = " ♥ {{ .CurrentDate | date .Format }} "
+template = " {{ .CurrentDate | date .Format }} "
 trailing_diamond = ""
 type = "time"
 

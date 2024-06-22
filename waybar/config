@@ -1,26 +1,159 @@
-// -*- mode: jsonc -*-
 {
-  "height": 42,
   "layer": "top",
   "position": "top",
-  "spacing": 10,
-  //===================================
-  // Left
+  "spacing": 0,
+  //=======================================================
+  // Left Modules
+  //=======================================================
   "modules-left": [
-    "tray"
+    "custom/logo",
+    "hyprland/workspaces"
   ],
+  "custom/logo": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/fuzzel.sh &"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九"
+    },
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": []
+    }
+  },
+  //=======================================================
+  // Center Modules
+  //=======================================================
+  "modules-center": [],
+  //=======================================================
+  // Left Modules
+  //=======================================================
+  "modules-right": [
+    "clock#date",
+    "clock#time",
+    "custom/power"
+  ],
+  "custom/power": {
+    "format": "󰤆",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/wlogout.sh"
+  },
+  "clock#time": {
+    "format": "<span rise='2800' font_desc='ComicShannsMono Nerd Font Mono'> </span>{:%R}"
+  },
+  "clock#date": {
+    "format": "<span rise='2500' font_desc='ComicShannsMono Nerd Font Mono'> </span>{:%A, %B %d, %Y}"
+  },
+  //=======================================================
+  // Unchanged
+  //=======================================================
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-click-right": "fullscreen",
+    "icon-theme": "WhiteSur",
+    "icon-size": 25,
+    "tooltip-format": "{title}"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {}%",
+    "max-length": 10
+  },
   "tray": {
-    "icon-size": 24
+    "spacing": 10
   },
-  //===================================
-  // Center
-  "modules-center": [
-    "clock"
-  ],
-  "clock": {
-    "format": "It's {:%A the %d.%B %Y (%R)}"
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": "󰀂",
+    "format-alt": "󱛇",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/rofi/wifi/wifi.sh &",
+    "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
+    "interval": 5,
+    "nospacing": 1,
   },
-  //===================================
-  // Right
-  "modules-right": []
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "󰂰",
+    "nospacing": 1,
+    "tooltip-format": "Volume : {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "󰖀",
+        "󰕾",
+        ""
+      ]
+    },
+    "on-click": "pamixer -t",
+    "scroll-step": 1
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "format-full": "Charged ",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": false
+  }
 }

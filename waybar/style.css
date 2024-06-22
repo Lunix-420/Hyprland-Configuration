@@ -24,17 +24,148 @@
 @define-color base #24273a;
 @define-color mantle #1e2030;
 @define-color crust #181926;
+@define-color shadow #000000;
 
 * {
-  font-family: "Comic Sans MS";
-  font-weight: bold;
-  font-size: 20px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: Comic Sans MS;
+  font-size: 18px;
 }
 
-window#waybar {
-   background-color: @base;
-   border: solid;
-   border-color: @mauve;
-   border-bottom-width: 3px;
+#waybar {
+  background-color: transparent;
+}
+
+#waybar > box {
+  background-color: alpha(@crust, 1.0);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  margin-top: 0px; 
+  margin-bottom: 5px; 
+  margin-left: 0px;
+  margin-right: 0px; 
+  padding-left: 5px;
+  padding-right: 5px;
+  border: solid;
+  border-color: @surface0;
+  border-radius: 0px 0px 0px 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 3px;
+
+  box-shadow: 0px 0px 5px #000000;
+}
+
+/*=======================================================*/
+/* Left Panel                                            */
+/*=======================================================*/
+
+#custom-logo {
+  margin: 5px;
+  margin-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  padding-right: 20px;
+  padding-left: 9px;
+  font-size: 30px;
+  border-radius: 7px;
+  color: @text;
+  background-color: @surface0;
+  box-shadow: 0px 0px 3px @shadow;
+}
+
+#custom-logo:hover  {
+  color: @crust;
+  background-color: @blue;
+  box-shadow: 0px 0px 3px @blue;
+}
+
+#workspaces {
+  background-color: transparent;
+  margin: 9px;
+  margin-bottom: 10px;
+}
+
+#workspaces button {
+  all: initial;
+  min-width: 0;
+  margin-right: 7px;
+  padding-left: 6px;
+  padding-right: 7px;
+  border-radius: 30px;
+  background-color: @surface0;
+  border: solid 2px @surface0;
+  color: @text;
+  box-shadow: 0px 0px 3px #000000;
+}
+
+#workspaces > label{
+  font-size: 3px;
+}
+
+#workspaces button.active {
+  color: @crust;
+  background-color: @text;
+  border-color: @text;
+  box-shadow: 0px 0px 3px @text;
+}
+
+#workspaces button:hover {
+  color: @crust;
+  background-color: @green;
+  border-color: @green;
+  box-shadow: 0px 0px 3px @green;
+}
+
+#workspaces button.urgent {
+  color: @crust;
+  background-color: @red;
+  border-color: @red;
+  box-shadow: 0px 0px 3px @red;
+}
+
+/*=======================================================*/
+/* Center Panel                                          */
+/*=======================================================*/
+
+
+/*=======================================================*/
+/* Right Panel                                           */
+/*=======================================================*/
+
+#custom-power  {
+  margin: 5px;
+  margin-bottom: 6px;
+  padding-top: 3px;
+  padding-right: 18px;
+  padding-left: 12px;
+  font-size: 30px;
+  border-radius: 7px;
+  color: @text;
+  background-color: @surface0;
+  box-shadow: 0px 0px 3px @shadow;
+}
+
+#custom-power:hover  {
+  color: @crust;
+  background-color: @red;
+  box-shadow: 0px 0px 3px @red;
+}
+
+#clock { 
+  font-size: 22px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-right: 7px;
+  padding-top: 0px;
+  padding-left: 7px;
+  padding-right: 10px;
+  border-radius: 30px;
+  background-color: @surface0;
+  border: solid 2px @surface0;
+  color: @text;
+  box-shadow: 0px 0px 3px #000000;
 }
 

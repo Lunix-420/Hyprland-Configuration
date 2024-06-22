@@ -32,3 +32,7 @@ fi
 if [[ $MODE == 'reload' ]]; then
 	reload
 fi
+
+if [[ $MODE == 'debug' ]]; then
+	reload
+fi
