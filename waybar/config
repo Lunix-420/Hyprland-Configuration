@@ -74,8 +74,7 @@
   // Right Modules
   //=======================================================
   "modules-right": [
-    "custom/gpu-usage",
-    "custom/gpu-usage",
+    "custom/cpu-usage",
     "custom/gpu-usage",
     "clock#date",
     "clock#time",
@@ -91,6 +90,12 @@
   },
   "clock#date": {
     "format": "<span rise='2000'></span> {:%A, %B %d}"
+  },
+  "custom/cpu-usage": {
+    "exec": "~/.config/hypr/scripts/cpu-stats.sh",
+    "format": "{}",
+    "return-type": "string",
+    "interval": 1
   },
   "custom/gpu-usage": {
     "exec": "~/.config/hypr/scripts/gpu-stats.sh",

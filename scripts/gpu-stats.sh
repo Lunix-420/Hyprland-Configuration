@@ -3,6 +3,9 @@
 # Define zero character (adjust as needed)
 ZERO_CHARACTER=" "
 
+# Define the icon to me shown
+ICON=󰍹 #""
+
 # Query GPU utilization and strip non-digit characters
 utilization=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader | tr -dc '[:digit:]')
 
@@ -19,4 +22,4 @@ if [ ${#temp} -eq 1 ]; then
 	temp="${ZERO_CHARACTER}${temp}"
 fi
 
-echo "<span rise='2000'></span> ${utilization}% | ${temp}°C"
+echo "<span rise='2000'></span>${ICON} ${utilization}% | ${temp}°C"
