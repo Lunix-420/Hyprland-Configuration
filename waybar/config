@@ -61,7 +61,7 @@
   ],
   "hyprland/window": {
     "format": "{}",
-    "max-length": 60,
+    "max-length": 50,
     "rewrite": {
       "(.*) — Mozilla Firefox": "$1",
       "nvim(.*)": "NeoVim Editor | Workspace: [$1 ]",
@@ -71,9 +71,12 @@
     "separate-outputs": true
   },
   //=======================================================
-  // Left Modules
+  // Right Modules
   //=======================================================
   "modules-right": [
+    "custom/gpu-usage",
+    "custom/gpu-usage",
+    "custom/gpu-usage",
     "clock#date",
     "clock#time",
     "custom/power"
@@ -84,9 +87,15 @@
     "on-click": "~/.config/hypr/scripts/wlogout.sh"
   },
   "clock#time": {
-    "format": "<span rise='2800' font_desc='ComicShannsMono Nerd Font Mono'> </span>{:%R}"
+    "format": "<span rise='2000'></span> {:%R}"
   },
   "clock#date": {
-    "format": "<span rise='2500' font_desc='ComicShannsMono Nerd Font Mono'> </span>{:%A, %B %d, %Y}"
+    "format": "<span rise='2000'></span> {:%A, %B %d}"
+  },
+  "custom/gpu-usage": {
+    "exec": "~/.config/hypr/scripts/gpu-stats.sh",
+    "format": "{}",
+    "return-type": "string",
+    "interval": 1
   }
 }
