@@ -5,6 +5,8 @@ set -euo pipefail # Enable some useful options for bash scripting
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALLER_DIR="${SCRIPT_DIR}/../"
 
+sudo pacman -Syu --noconfirm
+
 #==================================================================================================
 # Install yay
 echo "Installing yay..."
@@ -64,6 +66,9 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Creating modified initial ramdisk..."
 sudo mkinitcpio -P
+
+echo "Set splash screen"
+sudo plymouth-set-default-theme -R lunix
 
 # Copy entire installer directory to ~/.config/hypr
 echo "Copying installer directory to ~/.config/hypr..."
