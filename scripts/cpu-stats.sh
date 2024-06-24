@@ -4,7 +4,7 @@
 ZERO_CHARACTER=" "
 
 # Define the icon to be shown
-ICON="󰍛"
+ICON=🧠 # 󰍛"
 
 # Get CPU temperature using lm_sensors
 cpu_temp=$(sensors | grep 'Tctl' | awk '{print $2}' | sed 's/+//' | sed 's/°C//')
@@ -34,5 +34,7 @@ if [ ${#cpu_usage} -eq 1 ]; then
 	cpu_usage="${ZERO_CHARACTER}${cpu_usage}"
 fi
 
+icon_span="<span font-desc='CpuIcon 19px'>${ICON} </span>"
+
 # Output the formatted variables
-echo "<span rise='2000'></span>${ICON} ${cpu_usage}% | ${cpu_temp}°C"
+echo "${icon_span}${cpu_usage}% | ${cpu_temp}°C"

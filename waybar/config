@@ -88,10 +88,10 @@
     "on-click": "~/.config/hypr/scripts/wlogout.sh"
   },
   "clock#time": {
-    "format": "<span rise='2000'></span> {:%R}"
+    "format": "<span font-desc='Comic Sans MS 18px'>⏰ </span>{:%R}"
   },
   "clock#date": {
-    "format": "<span rise='2000'></span> {:%A, %B %d}"
+    "format": "<span font-desc='Comic Sans MS 18px'>🗓️ </span>{:%A, %B %d}"
   },
   "custom/cpu-usage": {
     "exec": "~/.config/hypr/scripts/cpu-stats.sh",
