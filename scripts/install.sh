@@ -5,7 +5,7 @@ set -euo pipefail # Enable some useful options for bash scripting
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALLER_DIR="${SCRIPT_DIR}/../"
 
-sudo pacman -Syu --noconfirm
+pacman -Syu --noconfirm
 
 #==================================================================================================
 # Install yay
@@ -14,7 +14,7 @@ if ! command -v yay &>/dev/null; then
 	# Check if git and base-devel are installed
 	if ! command -v git &>/dev/null || ! command -v makepkg &>/dev/null; then
 		echo "Installing git and base-devel..."
-		sudo pacman -S --needed git base-devel --noconfirm
+		pacman -S --needed git base-devel --noconfirm
 	fi
 
 	# Clone yay repository from AUR
@@ -41,34 +41,34 @@ fi
 #==================================================================================================
 # Install fonts
 echo "Installing fonts..."
-sudo pacman -S otf-comicshanns-nerd --noconfirm
+pacman -S otf-comicshanns-nerd --noconfirm
 yay -S ttf-comic-sans --noconfirm
 
 #==================================================================================================
 # Install core packages
 echo "Installing core packages..."
-sudo pacman -S hyprland sddm plymouth --noconfirm
+pacman -S hyprland sddm plymouth --noconfirm
 
 #==================================================================================================
 # Install NVIDIA drivers
 echo "Installing NVIDIA drivers..."
-sudo pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils egl-wayland --noconfirm
+pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils egl-wayland --noconfirm
 
 #==================================================================================================
 # Configuring
 
 # Copy files from "$INSTALLER_DIR/external" to "/"
 echo "Copying files to root directory..."
-sudo cp -r "${INSTALLER_DIR}/external/"* "/"
+cp -r "${INSTALLER_DIR}/external/"* "/"
 
 echo "Configuring GRUB..."
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Creating modified initial ramdisk..."
-sudo mkinitcpio -P
+mkinitcpio -P
 
 echo "Set splash screen"
-sudo plymouth-set-default-theme -R lunix
+plymouth-set-default-theme -R lunix
 
 # Copy entire installer directory to ~/.config/hypr
 echo "Copying installer directory to ~/.config/hypr..."
