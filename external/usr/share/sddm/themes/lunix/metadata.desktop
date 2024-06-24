@@ -1,6 +1,6 @@
 [SddmGreeterTheme]
-Name=Catppuccin macchiato
-Description=Soothing pastel theme for SDDM
+Name=Lunix
+Description=Custom Version of Catppuccin Theme
 Type=sddm-theme
 Version=2.1
 Website=https://github.com/catppuccin/sddm
