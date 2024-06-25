@@ -90,8 +90,10 @@ echo "Install Qt Apps"
 sudo pacman -S qt5ct qt6ct kvantum dolphin yazi ark kate
 
 echo "Install Media Apps"
-sudo pacman
-yay -S armcord-git spotify spicetify firefox
+sudo pacman firefox keepassxc font-manager
+yay -S armcord-git spotify spicetify
+
+curl -s https://ohmyposh.dev/install.sh | bash -s
 
 cp -r "${INSTALLER_DIR}/dotfiles/"* "$HOME/"
 cp -r "${INSTALLER_DIR}/dotfiles/."* "$HOME/"

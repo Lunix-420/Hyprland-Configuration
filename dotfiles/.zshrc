@@ -35,7 +35,8 @@ alias lsd='ex -T'
 alias lsda='ex -T -a'
 
 # vim
-alias vim="sudo -E nvim"
+alias vim="nvim"
+alias svim="sudo -E nvim"
 
 # Oh-My-Posh
 eval "$(oh-my-posh init zsh --config ~/.config/hypr/ohmyposh/theme.toml)"
