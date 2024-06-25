@@ -2,11 +2,15 @@
 
 set -euo pipefail # Enable some useful options for bash scripting
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 INSTALLER_DIR="${SCRIPT_DIR}/../"
+
+# Postpone mkinitcpio call to the end of the script
+REBUILD_INITRAMFS=false
 
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed base-devel
+
 #==================================================================================================
 # Install yay
 #
@@ -53,7 +57,7 @@ sudo pacman -S hyprland sddm plymouth --noconfirm
 #==================================================================================================
 # Install NVIDIA drivers
 echo "Installing NVIDIA drivers..."
-sudo pacman -S dkms nvidia-dkms nvidia-utils lib32-nvidia-utils egl-wayland --noconfirm
+sudo pacman -S linux nvidia nvidia-utils lib32-nvidia-utils egl-wayland --noconfirm
 
 #==================================================================================================
 # Configuring
@@ -65,11 +69,11 @@ sudo cp -r "${INSTALLER_DIR}/external/"* "/"
 echo "Configuring GRUB..."
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-echo "Creating modified initial ramdisk..."
-#sudo mkinitcpio -P
-
-echo "Set splash screen"
-sudo plymouth-set-default-theme -R lunix
+# Set splash screen in the background
+{
+	echo "Setting splash screen..."
+	sudo plymouth-set-default-theme -R lunix
+} &
 
 # Copy entire installer directory to ~/.config/hypr
 echo "Copying installer directory to ~/.config/hypr..."
@@ -79,23 +83,43 @@ cp -r "${INSTALLER_DIR}/"* "$HOME/.config/hypr/"
 #==================================================================================================
 # Applications
 
-echo "Install important applications"
+echo "Installing important applications..."
 sudo pacman -S alacritty fuzzel waybar --noconfirm
-yay -S hyprpicker hyprshot hyprshade waypaper-engine --noconfirm
+yay -S hyprpicker hyprshot hyprshade waypaper-engine-git --noconfirm
 
-echo "Install Lazyvim"
-sudo pacman -S ripgrep fd lazygit clang neovim
+echo "Installing Lazyvim..."
+sudo pacman -S ripgrep fd lazygit clang neovim --noconfirm
 
-echo "Install Qt Apps"
-sudo pacman -S qt5ct qt6ct kvantum dolphin yazi ark kate
+echo "Installing Qt Apps..."
+sudo pacman -S qt5ct qt6ct kvantum dolphin yazi ark kate --noconfirm
 
-echo "Install Media Apps"
-sudo pacman firefox keepassxc font-manager
-yay -S armcord-git spotify spicetify
+echo "Installing Media Apps..."
+sudo pacman -S firefox keepassxc font-manager --noconfirm
+yay -S armcord-git spotify spicetify --noconfirm
 
-curl -s https://ohmyposh.dev/install.sh | bash -s
+# Install oh-my-posh in the background
+{
+	echo "Installing oh-my-posh..."
+	curl -s https://ohmyposh.dev/install.sh | bash -s
+} &
 
+# Copy dotfiles
+echo "Copying dotfiles..."
 cp -r "${INSTALLER_DIR}/dotfiles/"* "$HOME/"
 cp -r "${INSTALLER_DIR}/dotfiles/."* "$HOME/"
 
+# Rebuild initial ramdisk at the end
+REBUILD_INITRAMFS=true
+
 echo "Installation complete."
+
+if [ "$REBUILD_INITRAMFS" = true ]; then
+	echo "Creating modified initial ramdisk..."
+	sudo mkinitcpio -P
+fi
+
+# Wait for background processes to complete
+echo "Waiting for background processes to complete"
+wait
+
+echo "All tasks completed."
