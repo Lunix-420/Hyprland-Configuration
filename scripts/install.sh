@@ -6,9 +6,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALLER_DIR="${SCRIPT_DIR}/../"
 
 sudo pacman -Syu --noconfirm
-
+sudo pacman -S --needed base-devel
 #==================================================================================================
 # Install yay
+#
 echo "Installing yay..."
 if ! command -v yay &>/dev/null; then
 	# Check if git and base-devel are installed
@@ -65,7 +66,7 @@ echo "Configuring GRUB..."
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Creating modified initial ramdisk..."
-sudo mkinitcpio -P
+#sudo mkinitcpio -P
 
 echo "Set splash screen"
 sudo plymouth-set-default-theme -R lunix
@@ -77,5 +78,22 @@ cp -r "${INSTALLER_DIR}/"* "$HOME/.config/hypr/"
 
 #==================================================================================================
 # Applications
+
+echo "Install important applications"
+sudo pacman -S alacritty fuzzel waybar --noconfirm
+yay -S hyprpicker hyprshot hyprshade waypaper-engine --noconfirm
+
+echo "Install Lazyvim"
+sudo pacman -S ripgrep fd lazygit clang neovim
+
+echo "Install Qt Apps"
+sudo pacman -S qt5ct qt6ct kvantum dolphin yazi ark kate
+
+echo "Install Media Apps"
+sudo pacman
+yay -S armcord-git spotify spicetify firefox
+
+cp -r "${INSTALLER_DIR}/dotfiles/"* "$HOME/"
+cp -r "${INSTALLER_DIR}/dotfiles/."* "$HOME/"
 
 echo "Installation complete."
