@@ -63,7 +63,7 @@
     "format": "{}",
     "icon": true,
     "icon-size": 24,
-    "max-length": 50,
+    "max-length": 45,
     "rewrite": {
       "(.*) — Mozilla Firefox": "$1",
       "nvim(.*)": "NeoVim Editor | Workspace: [$1 ]",
@@ -76,12 +76,17 @@
   // Right Modules
   //=======================================================
   "modules-right": [
+    "network",
     "custom/cpu-usage",
     "custom/gpu-usage",
     "clock#date",
     "clock#time",
     "custom/power"
   ],
+  "network": {
+    "interval": 1,
+    "format": "<span font-desc='Comic Sans MS 18px'>🌍 </span>{bandwidthUpBytes} | {bandwidthDownBytes}"
+  },
   "custom/power": {
     "format": "󰤆",
     "tooltip": false,
