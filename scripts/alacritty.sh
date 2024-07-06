@@ -1,6 +1,9 @@
-
 #!/usr/bin/env bash
 
 CONFIG="$HOME/.config/hypr/alacritty/alacritty.toml"
 
-alacritty --config-file "$CONFIG"
+if [ "$1" == "-f" ]; then
+	alacritty --title "Floating Alacritty" --config-file "$CONFIG"
+else
+	alacritty --config-file "$CONFIG"
+fi
