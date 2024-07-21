@@ -39,7 +39,7 @@ y = 10
 #==========================================================
 
 [font]
-size = 20
+size = 23
 
 [font.normal]
 family = "ComicShannsMono Nerd Font Mono"

@@ -1,27 +1,45 @@
 window {
-    font-family: monospace;
-    font-size: 14pt;
-    color: #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 1.0);
+    font-family: ComicShannsMono Nerd Font Mono;
+    font-size: 64pt;
+    color: #cdd6f4; 
+    background-color: rgba(17, 17, 27, .88);
 }
 
 button {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 25%;
-    border: none;
+    border: solid 5px transparent;
+    color: #ced7f4;
+    text-shadow: none;
+    border-radius: 20px 20px 20px 20px;
     background-color: rgba(30, 30, 46, 0);
-    margin: 5px;
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: none;
+    transition: box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out, border 0.4s ease-in-out;
 }
 
 button:hover {
-    background-color: rgba(49, 50, 68, 0.1);
+    background-color: rgba(49, 50, 68, 0.5);
+    border: 5px rgb(166, 218, 149) solid;
 }
 
-button:focus {
-    background-color: #cba6f7;
-    color: #1e1e2e;
+#lock {
+    background-image: image(url("/home/lunix/.config/hypr/wlogout/icons/lock.png"));
+    background-size: 400px;
 }
-
+#logout {
+    background-image: image(url("/home/lunix/.config/hypr/wlogout/icons/logout.png"));
+     background-size: 400px;
+}
+#shutdown {
+     background-image: image(url("/home/lunix/.config/hypr/wlogout/icons/shutdown.png"));
+     background-size: 400px;
+}
+#reboot {
+   background-image: image(url("/home/lunix/.config/hypr/wlogout/icons/reboot.png"));
+    background-size: 490px;
+}
 
