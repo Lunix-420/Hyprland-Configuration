@@ -85,30 +85,6 @@
   box-shadow: 0px 0px 3px @blue;
 }
 
-#custom-swaync {
-  font-family: ComicShannsMono Nerd Font Mono;
-  font-size: 32px;
-  all: initial;
-  margin-top:9px;
-  margin-bottom: 9px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 6px;
-  padding-right: 15px;
-  border-radius: 30px;
-  background-color: @surface0;
-  border: solid 2px @surface0;
-  color: @text;
-  box-shadow: 0px 0px 3px @shadow;
-}
-
-#custom-swaync:hover  {
-  color: @crust;
-  background-color: @green;
-  border-color: @green;
-  box-shadow: 0px 0px 3px @green;
-}
-
 #workspaces {
   background-color: transparent;
 }
@@ -138,9 +114,9 @@
 
 #workspaces button:hover {
   color: @crust;
-  background-color: @green;
-  border-color: @green;
-  box-shadow: 0px 0px 3px @green;
+  background-color: @peach;
+  border-color: @peach;
+  box-shadow: 0px 0px 3px @peach;
 }
 
 #workspaces button.urgent {
@@ -148,6 +124,31 @@
   background-color: @red;
   border-color: @red;
   box-shadow: 0px 0px 3px @red;
+}
+
+#custom-swaync {
+  font-family: ComicShannsMono Nerd Font Mono;
+  font-size: 32px;
+  min-width: 100px;
+  all: initial;
+  margin-top:9px;
+  margin-bottom: 9px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 8px;
+  padding-right: 7px;
+  border-radius: 30px;
+  background-color: @surface0;
+  border: solid 2px @surface0;
+  color: @text;
+  box-shadow: 0px 0px 3px @shadow;
+}
+
+#custom-swaync:hover  {
+  color: @crust;
+  background-color: @peach;
+  border-color: @peach;
+  box-shadow: 0px 0px 3px @peach;
 }
 
 #tray {
