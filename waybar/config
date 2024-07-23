@@ -7,6 +7,7 @@
   //=======================================================
   "modules-left": [
     "custom/logo",
+    "custom/swaync",
     "hyprland/workspaces",
     "tray"
   ],
@@ -20,8 +21,14 @@
     "tooltip": false,
     "on-click": "~/.config/hypr/scripts/fuzzel.sh &"
   },
+  "custom/swaync": {
+    "format": "<span font-desc='Comic Sans MS 20px'></span>",
+    "tooltip": false,
+    "on-click": "swaync-client -t -R -rs &"
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
+    "all-outputs": true,
     "format": "{icon}",
     "format-icons": {
       "default": "",
