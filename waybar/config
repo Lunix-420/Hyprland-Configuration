@@ -8,7 +8,9 @@
   "modules-left": [
     "custom/logo",
     "hyprland/workspaces",
+    "custom/seperator",
     "custom/swaync",
+    "custom/openai",
     "tray"
   ],
   "tray": {
@@ -21,30 +23,11 @@
     "tooltip": false,
     "on-click": "~/.config/hypr/scripts/fuzzel.sh &"
   },
-  "custom/swaync": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
-      "none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
-      "dnd-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
-      "dnd-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
-      "inhibited-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
-      "inhibited-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
-      "dnd-inhibited-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>"
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "all-outputs": true,
     "format": "{icon}",
+    "format-window-separator": "\n",
     "format-icons": {
       "default": "",
       "1": "一",
@@ -75,6 +58,35 @@
       "12": []
     }
   },
+  "custom/seperator": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
+      "none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
+      "dnd-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
+      "dnd-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
+      "inhibited-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
+      "inhibited-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>",
+      "dnd-inhibited-notification": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "<span font-desc='Comic Sans MS 20px'></span><span font-desc='Comic Sans MS 20px' color=\"#30344601\"><sup></sup></span>"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/openai": {
+    "format": "<span font-desc='Comic Sans MS 20px'></span>",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/openai.sh"
+  },
   //=======================================================
   // Center Modules
   //=======================================================
@@ -87,7 +99,7 @@
     "icon-size": 24,
     "max-length": 45,
     "rewrite": {
-      "(.*) — Mozilla Firefox": "$1",
+      //"(.*) — Mozilla Firefox": "$1",
       "nvim(.*)": "NeoVim Editor | Workspace: [$1 ]",
       "sudo -E nvim(.*)": "NeoVim Editor | Workspace: sudo -E [$1 ]",
       "(.*) - ArmCord": "Discord $1"
