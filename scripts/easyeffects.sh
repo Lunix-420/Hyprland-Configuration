@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-easyeffects --gapplication-service &
+nohup easyeffects --gapplication-service &
