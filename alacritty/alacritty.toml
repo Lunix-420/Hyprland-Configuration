@@ -31,15 +31,15 @@ class = { instance = "Alacritty", general = "Alacritty" }
 decorations_theme_variant = "None"
 
 [window.padding]
-x = 12
-y = 10
+x = 5
+y = 5
 
 #==========================================================
 # Font
 #==========================================================
 
 [font]
-size = 23
+size = 22
 
 [font.normal]
 family = "ComicShannsMono Nerd Font Mono"

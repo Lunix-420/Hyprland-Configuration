@@ -97,7 +97,7 @@
     "format": "{}",
     "icon": true,
     "icon-size": 24,
-    "max-length": 45,
+    "max-length": 56,
     "rewrite": {
       "(.*) — Mozilla Firefox": "$1",
       "nvim(.*)": "NeoVim Editor | Workspace: [$1 ]",
@@ -119,7 +119,7 @@
   ],
   "network": {
     "interval": 1,
-    "format": "<span font-desc='Comic Sans MS 18px'>🌍 </span>{bandwidthUpBytes} | {bandwidthDownBytes}"
+    "format": "<span font-desc='Comic Sans MS 18px'>🌍 </span>{bandwidthUpBytes} | {bandwidthDownBytes}"
   },
   "custom/power": {
     "format": "󰤆",
@@ -127,7 +127,8 @@
     "on-click": "~/.config/hypr/scripts/wlogout.sh"
   },
   "clock#time": {
-    "format": "<span font-desc='Comic Sans MS 18px'>⏰ </span>{:%R}"
+    "format": "<span font-desc='Comic Sans MS 18px'>⏰ </span>{:%R}",
+    "timezone": "Europe/Berlin"
   },
   "clock#date": {
     "format": "<span font-desc='Comic Sans MS 18px'>🗓️ </span>{:%A, %B %d}"
