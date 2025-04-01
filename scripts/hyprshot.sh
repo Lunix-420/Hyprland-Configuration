@@ -2,8 +2,6 @@
 
 MODE=$1
 
-hyprshade off
-
 if [[ $MODE == 'fullscreen' ]]; then
   hyprshot -m output --freeze --clipboard-only
 fi
@@ -15,5 +13,3 @@ fi
 if [[ $MODE == 'select' ]]; then
   hyprshot -m region --freeze --clipboard-only
 fi
-
-hyprshade on vibrance
