@@ -2,4 +2,4 @@
 
 killall quickshell
 
-quickshell --path ~/.config/hypr/quickshell --daemonize
+quickshell --path /data/development/quickshell --no-duplicate --daemonize
