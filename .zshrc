@@ -57,6 +57,7 @@ alias dmt='cd /data/development/dimethoxy/'      # Jump to Dimethoxy repo
 alias c='clear'                      # Clear terminal
 alias cat='bat --paging=never'       # Replace cat with bat for syntax highlighting (static file)
 alias ccc="| wl-copy"
+alias ddd="dolphin ."
 #=======================================================================================
 # Plugins
 #=======================================================================================
