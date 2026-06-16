@@ -13,3 +13,5 @@ fi
 if [[ $MODE == 'select' ]]; then
   hyprshot -m region --freeze --clipboard-only
 fi
+
+killall hyprpicker

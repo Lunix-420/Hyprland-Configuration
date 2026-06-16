@@ -1,0 +1,35 @@
+MenuBar=Disabled
+
+[$Version]
+update_info=dolphin_detailsmodesettings.upd:rename-leading-padding,dolphin_detailsmodesettings.upd:move-content-display,dolphin_directorysizemode.upd:convert-directorysizecount-to-directorysizemode
+
+[DetailsMode]
+PreviewSize=96
+
+[ExtractDialog]
+2 screens: Window-Maximized=true
+DirHistory[$e]=$HOME/Desktop/Disflux 1.1.0/
+
+[General]
+BrowseThroughArchives=true
+DoubleClickViewAction=none
+EditableUrl=true
+ShowFullPath=true
+ShowSpaceInfo=false
+UseTabForSwitchingSplitView=true
+Version=202
+ViewPropsTimestamp=2024,6,26,22,30,5.594
+
+[IconsMode]
+IconSize=128
+PreviewSize=112
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[PreviewSettings]
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,pothumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mltpreview,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,textthumbnail,ffmpegthumbs
+
+[UiSettings]
+ColorScheme=Kvantum
