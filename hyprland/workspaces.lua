@@ -21,4 +21,5 @@ local function init_workspaces()
   for i = 1, 12 do
     hl.dispatch(hl.dsp.focus({workspace = tostring(i)}))
   end
+  hl.dispatch(hl.dsp.focus({workspace = "7"}))
 end
