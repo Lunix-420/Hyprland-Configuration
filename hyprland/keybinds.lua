@@ -57,6 +57,7 @@ local screenshot_keys = {
     { key = "S", mode = "window" },
     { key = "A", mode = "region" },
 }
+
 for _, binding in ipairs(screenshot_keys) do
     hl.bind("SUPER + " .. binding.key, function() 
         hl.dispatch(hl.dsp.exec_cmd("hyprshot -m " .. binding.mode .. " --freeze --clipboard-only"))
@@ -69,27 +70,23 @@ end
 hl.bind("SUPER + P", hl.dsp.exec_cmd("hyprpicker -f hex -a"))
 
 -- Quickshell
-hl.bind("SUPER + B", function() 
-    hl.dispatch(hl.dsp.exec_cmd("killall quickshell"))
-    hl.dispatch(hl.dsp.exec_cmd("quickshell --path /data/development/quickshell --no-duplicate --daemonize"))
+hl.bind("SUPER + B", function()
+    hl.dispatch(hl.dsp.exec_cmd(
+        "killall quickshell || \
+         quickshell --path /data/development/quickshell --no-duplicate --daemonize"))
 end)
+
 
 -- Terminal --
 hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("kitty --class='kitty-floating'"))
 
 -- Launcher --
 hl.bind("SUPER + L", function()
-    local handle = io.popen("pidof fuzzel")
-    local result = handle:read("*a")
-    handle:close()
-    
-    if result ~= "" then
-        hl.dispatch(hl.dsp.exec_cmd("pkill fuzzel"))
-    else
-        local config_path = os.getenv("HOME") .. "/.config/hypr/fuzzel/fuzzel.ini"
-        hl.dispatch(hl.dsp.exec_cmd("fuzzel --config=" .. config_path .. " --log-level=info"))
-    end
+    hl.dispatch(hl.dsp.exec_cmd(
+        "pkill fuzzel || \
+         fuzzel --config=$HOME/.config/hypr/fuzzel/fuzzel.ini --log-level=info"))
 end)
+
 
 -- Apps --
 hl.bind("SUPER + K", hl.dsp.exec_cmd(browser))
